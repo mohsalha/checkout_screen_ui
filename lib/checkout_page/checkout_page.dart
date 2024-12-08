@@ -68,56 +68,56 @@ class CheckoutPage extends StatelessWidget {
     return CustomScrollView(
       controller: _viewModel.scrollController,
       slivers: [
-        SliverAppBar(
-          snap: false,
-          pinned: false,
-          floating: false,
-          backgroundColor: Colors.grey.shade50,
-          collapsedHeight: _collapsedAppBarHeight,
-          // set to false to prevent undesired back arrow
-          automaticallyImplyLeading: false,
-          title: Row(
-            children: [
-              SizedBox(
-                width: 40,
-                child: (data.onBack != null)
-                    ? IconButton(
-                        onPressed: () => data.onBack!(),
-                        icon: const Icon(
-                          Icons.keyboard_arrow_left_outlined,
-                          color: Colors.black,
-                        ))
-                    : null,
-              ),
-              Expanded(
-                  child: Text(
-                data.payToName.length < 16
-                    ? '${data.payToName} Checkout'
-                    : data.payToName,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 26, color: Colors.black),
-              )),
-              const SizedBox(
-                width: 40,
-              ),
-            ],
-          ),
-          bottom: PreferredSize(
-            preferredSize: const Size(120.0, 32.0),
-            child: _ChargeAmountDisplay(
-                key: _viewModel.totalDisplayKey,
-                initHeight: _initHeight,
-                viewModel: _viewModel),
-          ),
-          expandedHeight: _expHeight,
-          flexibleSpace: FlexibleSpaceBar(
-            centerTitle: true,
-            background: Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 80, 16.0, 0),
-              child: _ListOfCharges(viewModel: _viewModel),
-            ),
-          ),
-        ),
+        // SliverAppBar(
+        //   snap: false,
+        //   pinned: false,
+        //   floating: false,
+        //   backgroundColor: Colors.grey.shade50,
+        //   collapsedHeight: _collapsedAppBarHeight,
+        //   // set to false to prevent undesired back arrow
+        //   automaticallyImplyLeading: false,
+        //   title: Row(
+        //     children: [
+        //       SizedBox(
+        //         width: 40,
+        //         child: (data.onBack != null)
+        //             ? IconButton(
+        //                 onPressed: () => data.onBack!(),
+        //                 icon: const Icon(
+        //                   Icons.keyboard_arrow_left_outlined,
+        //                   color: Colors.black,
+        //                 ))
+        //             : null,
+        //       ),
+        //       Expanded(
+        //           child: Text(
+        //         data.payToName.length < 16
+        //             ? '${data.payToName} Checkout'
+        //             : data.payToName,
+        //         textAlign: TextAlign.center,
+        //         style: const TextStyle(fontSize: 26, color: Colors.black),
+        //       )),
+        //       const SizedBox(
+        //         width: 40,
+        //       ),
+        //     ],
+        //   ),
+        //   bottom: PreferredSize(
+        //     preferredSize: const Size(120.0, 32.0),
+        //     child: _ChargeAmountDisplay(
+        //         key: _viewModel.totalDisplayKey,
+        //         initHeight: _initHeight,
+        //         viewModel: _viewModel),
+        //   ),
+        //   expandedHeight: _expHeight,
+        //   flexibleSpace: FlexibleSpaceBar(
+        //     centerTitle: true,
+        //     background: Padding(
+        //       padding: const EdgeInsets.fromLTRB(16.0, 80, 16.0, 0),
+        //       child: _ListOfCharges(viewModel: _viewModel),
+        //     ),
+        //   ),
+        // ),
         SliverList(
           delegate: SliverChildListDelegate(
             [
@@ -278,3 +278,4 @@ class CheckoutPage extends StatelessWidget {
     );
   }
 }
+

@@ -145,6 +145,10 @@ class _CreditCardFormState extends State<CreditCardForm> {
             TextFormFieldWrapper(
               formField: TextFormField(
                 controller: cEmail,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
                 textAlign: TextAlign.center,
                 enabled: !widget.lockEmail,
                 keyboardType: TextInputType.emailAddress,
@@ -178,6 +182,10 @@ class _CreditCardFormState extends State<CreditCardForm> {
             position: TextFormFieldPosition.top,
             formField: TextFormField(
               controller: cCardNumber,
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
               keyboardType: TextInputType.number,
               validator: (value) {
                 if (CreditNumberSubmitRegexValidator().isValid(value!)) {
@@ -219,6 +227,10 @@ class _CreditCardFormState extends State<CreditCardForm> {
                 child: TextFormFieldWrapper(
                   position: TextFormFieldPosition.bottomLeft,
                   formField: TextFormField(
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                    ),
                     controller: cExpiry,
                     keyboardType: TextInputType.number,
                     validator: (value) {
@@ -246,6 +258,10 @@ class _CreditCardFormState extends State<CreditCardForm> {
                 child: TextFormFieldWrapper(
                   position: TextFormFieldPosition.bottomRight,
                   formField: TextFormField(
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                    ),
                     controller: cSecurity,
                     validator: (value) {
                       if (CreditCvvSubmitRegexValidator().isValid(value!)) {
@@ -291,6 +307,10 @@ class _CreditCardFormState extends State<CreditCardForm> {
           TextFormFieldWrapper(
             formField: TextFormField(
               controller: cName,
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
               keyboardType: TextInputType.name,
               validator: (input) {
                 if (input!.isNotEmpty &&
@@ -307,66 +327,66 @@ class _CreditCardFormState extends State<CreditCardForm> {
               ),
             ),
           ),
-          const Row(
-            children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(4, 16, 0, 4),
-                child: Text('Country or region'),
-              ),
-            ],
-          ),
-          TextFormFieldWrapper(
-            position: TextFormFieldPosition.top,
-            formField: DropdownButtonFormField(
-              value: chosenCountryIndex,
-              items: widget.countries
-                  .map((e) => DropdownMenuItem(
-                        child: Text(e),
-                        value: widget.countries.indexOf(e),
-                      ))
-                  .toList(),
-              // controller: cCountry,
-              decoration: const InputDecoration(
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 5, horizontal: 16),
-                border: InputBorder.none,
-              ),
-              onChanged: (widget.countries.length > 1)
-                  ? (o) => {
-                        setState(() {
-                          chosenCountryIndex = o;
-                        })
-                      }
-                  : null,
-            ),
-          ),
-          TextFormFieldWrapper(
-            position: TextFormFieldPosition.bottom,
-            formField: TextFormField(
-              controller: cZip,
-              keyboardType: TextInputType.number,
-              validator: (input) {
-                if (AddressPostalSubmitRegexValidator().isValid(input!)) {
-                  return null;
-                }
-                return 'Enter a valid zip code';
-              },
-              inputFormatters: [
-                MaskedTextInputFormatter(
-                  mask: 'xxxxx',
-                  separator: '',
-                )
-              ],
-              decoration: const InputDecoration(
-                hintText: 'ZIP',
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 5, horizontal: 16),
-                border: InputBorder.none,
-              ),
-            ),
-          ),
+          // const Row(
+          //   children: [
+          //     Padding(
+          //       padding: EdgeInsets.fromLTRB(4, 16, 0, 4),
+          //       child: Text('Country or region'),
+          //     ),
+          //   ],
+          // ),
+          // TextFormFieldWrapper(
+          //   position: TextFormFieldPosition.top,
+          //   formField: DropdownButtonFormField(
+          //     value: chosenCountryIndex,
+          //     items: widget.countries
+          //         .map((e) => DropdownMenuItem(
+          //               child: Text(e),
+          //               value: widget.countries.indexOf(e),
+          //             ))
+          //         .toList(),
+          //     // controller: cCountry,
+          //     decoration: const InputDecoration(
+          //       contentPadding:
+          //           EdgeInsets.symmetric(vertical: 5, horizontal: 16),
+          //       border: InputBorder.none,
+          //     ),
+          //     onChanged: (widget.countries.length > 1)
+          //         ? (o) => {
+          //               setState(() {
+          //                 chosenCountryIndex = o;
+          //               })
+          //             }
+          //         : null,
+          //   ),
+          // ),
+          // TextFormFieldWrapper(
+          //   position: TextFormFieldPosition.bottom,
+          //   formField: TextFormField(
+          //     controller: cZip,
+          //     keyboardType: TextInputType.number,
+          //     validator: (input) {
+          //       if (AddressPostalSubmitRegexValidator().isValid(input!)) {
+          //         return null;
+          //       }
+          //       return 'Enter a valid zip code';
+          //     },
+          //     inputFormatters: [
+          //       MaskedTextInputFormatter(
+          //         mask: 'xxxxx',
+          //         separator: '',
+          //       )
+          //     ],
+          //     decoration: const InputDecoration(
+          //       hintText: 'ZIP',
+          //       contentPadding:
+          //           EdgeInsets.symmetric(vertical: 5, horizontal: 16),
+          //       border: InputBorder.none,
+          //     ),
+          //   ),
+          // ),
           const SizedBox(
-            height: 30,
+            height: 10,
           ),
           if (widget.displayPhone)
             const Row(
@@ -382,6 +402,10 @@ class _CreditCardFormState extends State<CreditCardForm> {
               position: TextFormFieldPosition.alone,
               formField: TextFormField(
                 controller: cPhone,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
                 keyboardType: TextInputType.number,
                 validator: (input) {
                   input = input!.replaceAll('-', '');
@@ -595,3 +619,4 @@ class _BrandsDisplayState extends State<_BrandsDisplay> {
           );
   }
 }
+
